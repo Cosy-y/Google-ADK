@@ -9,6 +9,10 @@ __pycache__/
 env/
 venv/
 
+# Ignore all .env files inside agent folders
+**/.env
+
+
 # IDEs
 .vscode/
 .idea/
