@@ -5,19 +5,26 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from google.adk.agents import Agent
 from common.data_utils import load_csv, get_top_student, get_subject_columns, detect_missing_values
 
+
 def analyze_csv_data(csv_content: str, is_file: bool = False, filetype: str = "csv") -> dict:
     """Basic summary and sample of the dataset."""
     try:
         df = load_csv(csv_content, is_file=is_file, filetype=filetype)
-        summary = df.describe().to_dict()
+
+        # Create a readable summary string
+        summary = (
+            f"Total Rows: {len(df)}\n"
+            f"Columns: {', '.join(list(df.columns))}\n\n"
+            f"Sample Data (first 5 rows):\n"
+        )
+
+        # Add sample data in a readable format
+        for idx, row in df.head(5).iterrows():
+            summary += f"Row {idx + 1}: {dict(row)}\n"
+
         return {
             "status": "success",
-            "report": {
-                "rows": len(df),
-                "columns": list(df.columns),
-                "sample_data": df.head(5).to_dict('records'),
-                "summary_stats": summary
-            }
+            "report": summary
         }
     except Exception as e:
         return {
