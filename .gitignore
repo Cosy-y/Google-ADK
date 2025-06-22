@@ -27,3 +27,5 @@ Thumbs.db
 # Notebooks & temp
 .ipynb_checkpoints/
 *.log
+# Ignore all agent environment files
+**/.env
