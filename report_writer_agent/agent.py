@@ -12,6 +12,22 @@ from common.data_utils import (
     get_subject_averages,
     generate_bar_chart
 )
+import google.generativeai as genai
+import os
+
+# Always configure Gemini, regardless of Vertex setting
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+# Optional: Read VERTEXAI flag if you need it for branching logic
+use_vertexai = os.getenv("VERTEXAI", "False").lower() == "true"
+
+if use_vertexai:
+    # (Your Vertex code — likely not used)
+    pass
+else:
+    model = genai.GenerativeModel("gemini-pro")
+    response = model.generate_content("Generate a report...")
+
 
 
 def write_csv_report(csv_content: str) -> dict:
