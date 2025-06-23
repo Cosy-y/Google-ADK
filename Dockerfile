@@ -20,4 +20,5 @@ RUN pip install google-adk
 EXPOSE 10000
 
 # Run the ADK web server
-CMD ["adk", "web"]
+CMD ["sh", "-c", "adk web --host 0.0.0.0 --port ${PORT:-8000}"]
+
