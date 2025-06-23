@@ -25,7 +25,7 @@ if use_vertexai:
     # (Your Vertex code — likely not used)
     pass
 else:
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-1.5-pro")
     response = model.generate_content("Generate a report...")
 
 
@@ -80,7 +80,7 @@ def write_csv_report(csv_content: str) -> dict:
 
 root_agent = Agent(
     name="report_writer_agent",
-    model="gemini-2.0-flash",
+    model="models/gemini-1.5-flash",
     description="Agent to generate human-readable performance reports from a CSV dataset.",
     instruction="""
 You are a Markdown-savvy reporting assistant. When given a CSV containing student scores:

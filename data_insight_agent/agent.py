@@ -67,7 +67,7 @@ def identify_top_student(csv_content: str, is_file: bool = False, filetype: str 
 
 root_agent = Agent(
     name="data_insights_assistant",
-    model="gemini-2.0-flash",
+    model="models/gemini-1.5-flash",
     description="Agent to analyze CSV data and provide insights about the dataset.",
     instruction="""
 You are a helpful data analysis assistant who can:

@@ -62,7 +62,7 @@ def smart_dispatch(csv_content: str, query: str) -> dict:
 
 root_agent = Agent(
     name="multi_agent_controller",
-    model="gemini-2.0-flash",
+    model="models/gemini-1.5-flash",
     description="An agent that routes CSV-based questions to the best suited sub-agent.",
     instruction="""
 You are a multi-agent orchestrator. When given a CSV file and a user query, decide whether to:

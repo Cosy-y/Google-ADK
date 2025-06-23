@@ -28,7 +28,7 @@ def generate_feedback(csv_content: str, is_file: bool = False, filetype: str = "
 
 root_agent = Agent(
     name="feedback_generator_agent",
-    model="gemini-2.0-flash",
+    model="models/gemini-1.5-flash",
     description="Agent that generates personalized feedback for students based on their scores.",
     instruction="""
 You are a student advisor agent. When given a CSV of student scores, return personalized feedback per student.
